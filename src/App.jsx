@@ -5,13 +5,15 @@ import "bootstrap/dist/js/bootstrap";
 import { Card, Filter, Navbar, Pagination, Search } from './components';
 
 function App() {
+  const [fetchedData, setFetchedData] = useState([]);
+  let { info, results } = fetchedData;
 
   let api = `https://rickandmortyapi.com/api/character/?page=1`;
 
   useEffect(() => {
     (async function() {
       let data = await fetch(api).then((res) => res.json());
-      console.log(data);
+      setFetchedData(data);
     })();
   }, [api]);
   return (
