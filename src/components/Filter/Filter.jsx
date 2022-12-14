@@ -32,6 +32,10 @@ const Filter = ({
           setSpecies={setSpecies}
           setPageNumber={setPageNumber}
         />
+        <Gender
+          setGender={setGender}
+          setPageNumber={setPageNumber}
+        />
       </div>
     </div>
   )
