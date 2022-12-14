@@ -28,6 +28,10 @@ const Filter = ({
           setStatus={setStatus}
           setPageNumber={setPageNumber}
         />
+        <Species
+          setSpecies={setSpecies}
+          setPageNumber={setPageNumber}
+        />
       </div>
     </div>
   )
