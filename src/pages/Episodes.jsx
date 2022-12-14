@@ -4,13 +4,13 @@ import { Card, InputGroup } from '../components';
 const Episodes = () => {
   const [results, setResults] = useState([])
   const [info, setInfo] = useState([])
-  const [id, setId] = useState(1)
+  const [id, setID] = useState(1)
   let { air_date, episode, name } = info;
 
   let api = `https://rickandmortyapi.com/api/episode/${id}`
 
   useEffect(() => {
-    (async () => {
+    (async function () {
       const data = await fetch(api).then((res) => res.json());
       setInfo(data);
 
@@ -33,6 +33,17 @@ const Episodes = () => {
           Air Date: {air_date === "" ? "Unknown" : air_date}
         </h5>
       </div>
+      {/* <div className="row">
+        <div className="col-lg-3 col-12 mb-4">
+          <h4 className="text-center mb-4">Pick Episode</h4>
+          <InputGroup name="Episode" changeID={setID} total={51} />
+        </div>
+        <div className="col-lg-8 col-12">
+          <div className="row">
+            <Card results={results} />
+          </div>
+        </div>
+      </div> */}
     </div>
   );
 }

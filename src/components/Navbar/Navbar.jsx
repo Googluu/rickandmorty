@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, Link } from "react-router-dom";
 
-import "../../App.css";
+import "../../App.scss";
 
 const Navbar = () => {
   return (
@@ -12,12 +12,11 @@ const Navbar = () => {
         </Link>
         <style jsx="true">
           {`
-            button[aria-expanded="false"] > .close {
-              display: none;
-            }
-            button[aria-expanded="true"] > .open {
-              display: none;
-            }
+          button[aria-expanded="false"] > .close {
+            display: none;
+          }
+          button[aria-expanded="true"] > .open {
+            display: none;
           `}
         </style>
         <button
@@ -34,6 +33,7 @@ const Navbar = () => {
         </button>
         <div
           className="collapse navbar-collapse justify-content-end"
+          id="navbarNavAltMarkup"
         >
           <div className="navbar-nav fs-5">
             <NavLink to="/" className="nav-link">
@@ -42,7 +42,7 @@ const Navbar = () => {
             <NavLink to="/episodes" className="nav-link">
               Episode
             </NavLink>
-            <NavLink to="/location" activeClassName="active" className="nav-link">
+            <NavLink to="/location" activeclassname="active" className="nav-link">
               Location
             </NavLink>
           </div>
