@@ -1,10 +1,30 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 
 import { Card, Filter, Navbar, Pagination, Search } from './components';
+import { Episodes, Location } from './pages/';
 
 function App() {
+  return (
+    <Router>
+      <div className="App">
+        <Navbar />
+      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/episodes" element={<Episodes />} />
+
+        <Route path="/location" element={<Location />} />
+      </Routes>
+    </Router>
+  )
+}
+
+const Home = () => {
   const [fetchedData, setFetchedData] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
   const [search, setSearch] = useState("");
@@ -17,7 +37,7 @@ function App() {
   let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
 
   useEffect(() => {
-    (async function() {
+    (async function () {
       let data = await fetch(api).then((res) => res.json());
       setFetchedData(data);
     })();
