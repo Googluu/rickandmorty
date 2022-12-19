@@ -13,13 +13,15 @@ const Episodes = () => {
     (async function () {
       const data = await fetch(api).then((res) => res.json());
       setInfo(data);
+      // console.log(data);
 
-      const a = await Promise.all(
-        data.characters.map((x) => {
-          return fetch(x).then((res) => res.json);
+      const a = Promise.all(
+        data.characters.map(async (character) => {
+          return await fetch(character).then((res) => res.json);
         })
       );
       setResults(a);
+      // console.log(a);
     })();
   }, [api])
   return (
@@ -33,17 +35,18 @@ const Episodes = () => {
           Air Date: {air_date === "" ? "Unknown" : air_date}
         </h5>
       </div>
-      {/* <div className="row">
+      {/* error here */}
+      <div className="row">
         <div className="col-lg-3 col-12 mb-4">
           <h4 className="text-center mb-4">Pick Episode</h4>
           <InputGroup name="Episode" changeID={setID} total={51} />
         </div>
         <div className="col-lg-8 col-12">
           <div className="row">
-            <Card results={results} />
+            <Card results={info} />
           </div>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }
