@@ -1,6 +1,5 @@
-import React from 'react';
+import React from "react";
 import { NavLink, Link } from "react-router-dom";
-
 import "../../App.scss";
 
 const Navbar = () => {
@@ -8,17 +7,16 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
       <div className="container">
         <Link to="/" className="navbar-brand fs-3 ubuntu">
-          Rick & Morty <span className="text-primary">Wiki</span>
+          Rick & Morty <span className="text-primary">WiKi</span>
         </Link>
-        <style jsx="true">
-          {`
+        <style jsx>{`
           button[aria-expanded="false"] > .close {
             display: none;
           }
           button[aria-expanded="true"] > .open {
             display: none;
-          `}
-        </style>
+          }
+        `}</style>
         <button
           className="navbar-toggler border-0"
           type="button"
@@ -42,7 +40,11 @@ const Navbar = () => {
             <NavLink to="/episodes" className="nav-link">
               Episode
             </NavLink>
-            <NavLink to="/location" activeclassname="active" className="nav-link">
+            <NavLink
+              activeClassName="active"
+              className="nav-link"
+              to="/location"
+            >
               Location
             </NavLink>
           </div>
@@ -52,4 +54,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar
+export default Navbar;
