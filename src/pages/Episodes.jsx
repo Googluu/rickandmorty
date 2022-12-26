@@ -9,18 +9,23 @@ const Episodes = () => {
 
   let api = `https://rickandmortyapi.com/api/episode/${id}`
 
+/* Fetching data from the API and setting the state. */
   useEffect(() => {
     (async function () {
       const data = await fetch(api).then((res) => res.json());
       setInfo(data);
       // console.log(data);
-
-      const a = Promise.all(
-        data.characters.map(async (character) => {
-          return await fetch(character).then((res) => res.json);
-        })
-      );
+      const a = data.characters.map(async (character) => {
+        return await fetch(character).then((res) => res.json);
+      });
       setResults(a);
+
+      // const a = Promise.all(
+      //   data.characters.map(async (character) => {
+      //     return await fetch(character).then((res) => res.json);
+      //   })
+      // );
+      // setResults(a);
       // console.log(a);
     })();
   }, [api])
