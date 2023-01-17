@@ -1,2 +1,2 @@
-# rickandmorty 🎣
+# rickandmorty 👽
 Build with API RickAndMorty
