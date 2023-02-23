@@ -1,1 +1,1 @@
-# rickandmorty 👽
+# rickandmorty
